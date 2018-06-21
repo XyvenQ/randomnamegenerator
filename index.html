@@ -184,7 +184,7 @@
         }
 
         async function fileToCookies() {
-            clearCurrentCookies();
+            clearNames();
             for (let i = 0; i < namesList.length; i++) {
                 addCookie("" + i, "" + namesList[i])
                 console.log("" + i, "" + namesList[i]);
