@@ -183,7 +183,7 @@
 
         function precheck2(element) {
             if (event.keyCode == 13) {
-                setCookie(numNames, element.value);
+                setCookie(element.id, element.value);
                 element.value = "";
             }
         }
