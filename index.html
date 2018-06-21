@@ -47,7 +47,7 @@
         function resetInput() {
             document.getElementById("nameInput").setAttribute("onkeydown", "precheck(this)");
         }
-
+        
         function displayName(cname) {
             var temp = document.createElement("div");
             temp.innerHTML = getCookie("" + cname);
@@ -59,6 +59,9 @@
             tempI.setAttribute("onclick", "deleteCookie(parentElement)")
             temp.appendChild(tempI);
             document.getElementById("namesDisplay").appendChild(temp);
+        }
+        function updateDisplayName(cname){
+            document.getElementById(""+cname).innerHTML = getCookie(""+cname);
         }
         function displayNames(){
             for (let i = 0; i < numNames; i++) {
@@ -186,6 +189,7 @@
         function precheck2(element) {
             if (event.keyCode == 13) {
                 setCookie(currentName, element.value);
+                updateDisplayName(currentName);
                 element.value = "";
                 currentName = "";
             }
