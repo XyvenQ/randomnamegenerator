@@ -80,7 +80,6 @@
             if (/^\d+$/.test("" + cname)) {
                 possibleNames.push("" + cname);
                 displayName("" + cname);
-                console.log("Created name: " + cname);
                 numNames++;
             }
         }
@@ -196,6 +195,12 @@
             if (event.keyCode == 13) {
                 setCookie(currentName, element.value);
                 updateDisplayName(currentName);
+                resetInput();
+                element.value = "";
+                currentName = "";
+            }
+            if (event.keyCode == 13) {
+                resetInput();
                 element.value = "";
                 currentName = "";
             }
