@@ -58,13 +58,19 @@
             temp.appendChild(tempI);
             document.getElementById("namesDisplay").appendChild(temp);
         }
+        function displayNames(){
+            for (let i = 0; i < numNames; i++) {
+                           
+            }
+        }
 
         function addCookie(cname, cvalue) {
             document.cookie = "" + cname + "=" + cvalue + ";";
             if (/^\d+$/.test("" + cname)) {
                 possibleNames.push("" + cname);
                 displayName("" + cname);
-                console.log("Created name: " + cname)
+                console.log("Created name: " + cname);
+                numNames++;
             }
         }
 
@@ -170,7 +176,6 @@
         function precheck(element) {
             if (event.keyCode == 13) {
                 addCookie(numNames, element.value);
-                numNames++;
                 setCookie("numNames", numNames);
                 element.value = "";
             }
