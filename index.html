@@ -39,7 +39,7 @@
 
         function openName(element) {
             var temp = document.getElementById("nameInput");
-            currentName = temp.id;
+            currentName = element.id;
             temp.setAttribute("onkeydown", "precheck2(this)");
             temp.value = "" + getCookie("" + element.id);
         }
