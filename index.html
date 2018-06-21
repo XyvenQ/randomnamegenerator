@@ -55,7 +55,8 @@
             temp.setAttribute("onclick", "openName(this)");
             var tempSpan = document.createElement("span");
             tempSpan.innerHTML=getCookie("" + cname);
-            tempSpan.setAttribute("id", "span"+cname)
+            tempSpan.setAttribute("id", "span"+cname);
+            temp.appendChild(tempSpan);
             var tempI = document.createElement("i");
             tempI.setAttribute("class", "fa fa-times w3-hover w3-hover-text-red");
             tempI.setAttribute("onclick", "deleteCookie(parentElement)")
@@ -63,7 +64,7 @@
             document.getElementById("namesDisplay").appendChild(temp);
         }
         function updateDisplayName(cname){
-            document.getElementById(""+cname).innerHTML = getCookie(""+cname);
+            document.getElementById("span"+cname).innerHTML = getCookie(""+cname);
         }
         function displayNames(){
             for (let i = 0; i < numNames; i++) {
