@@ -60,7 +60,7 @@
             temp.appendChild(tempSpan);
             var tempI = document.createElement("i");
             tempI.setAttribute("class", "fa fa-times w3-hover w3-hover-text-red");
-            tempI.setAttribute("onclick", "deleteCookie(parentElement)")
+            tempI.setAttribute("onclick", "deleteCookie(parentElement.id)")
             temp.appendChild(tempI);
             document.getElementById("namesDisplay").appendChild(temp);
         }
