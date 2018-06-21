@@ -55,7 +55,7 @@
             temp.setAttribute("id", "" + cname);
             temp.setAttribute("onclick", "openName(this)");
             var tempSpan = document.createElement("span");
-            tempSpan.innerHTML=getCookie("" + cname);
+            tempSpan.innerHTML=getCookie("" + cname)+ " ";
             tempSpan.setAttribute("id", "span"+cname);
             temp.appendChild(tempSpan);
             var tempI = document.createElement("i");
@@ -65,7 +65,7 @@
             document.getElementById("namesDisplay").appendChild(temp);
         }
         function updateDisplayName(cname){
-            document.getElementById("span"+cname).innerHTML = getCookie(""+cname);
+            document.getElementById("span"+cname).innerHTML = getCookie(""+cname) + " ";
         }
         function displayNames(){
             for (let i = 0; i < numNames; i++) {
