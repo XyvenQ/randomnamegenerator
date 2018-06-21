@@ -19,6 +19,10 @@
                 }
             }
         }
+        function onloadFunction() {
+            resetPossibleNames();
+            document.getElementById("fileinput").addEventListener('change', readSingleFile, false);
+        }
         //cookie handling
         document.cookie = "";
         if (getCookie("numNames") != "")
@@ -75,11 +79,6 @@
             tempI.setAttribute("onclick", "deleteName(parentElement)")
             temp.appendChild(tempI);
             document.getElementById("namesDisplay").appendChild(temp);
-        }
-
-        function onloadFunction() {
-            resetPossibleNames();
-            document.getElementById("fileinput").addEventListener('change', readSingleFile, false);
         }
 
         function clearCurrentCookies() {
