@@ -50,7 +50,6 @@
         function deleteCookie(cname) {
             document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             if (/^\d+$/.test(cname)) {
-                deleteName("" + cname);
                 if (possibleNames.indexOf(cname) == -1) {} else {
                     possibleNames.splice(possibleNames.indexOf(cname), 1);
                     document.getElementByID("" + cname).remove();
@@ -76,7 +75,7 @@
             temp.setAttribute("onclick", "openName(this)");
             var tempI = document.createElement("i");
             tempI.setAttribute("class", "fa fa-times w3-hover w3-hover-text-red");
-            tempI.setAttribute("onclick", "deleteName(parentElement)")
+            tempI.setAttribute("onclick", "deleteCookie(parentElement)")
             temp.appendChild(tempI);
             document.getElementById("namesDisplay").appendChild(temp);
         }
