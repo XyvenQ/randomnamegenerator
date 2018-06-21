@@ -192,41 +192,42 @@
 
 <body onload="onloadFunction()">
     <div class="w3-content w3-container w3-padding-64">
-        <h1 class="w3-center w3-white">
+        <h1 class="w3-center w3-text-white">
             Random Name Generator
         </h1>
     </div>
     <!-- Container (Contact Section) -->
-    <div class="w3-content w3-container w3-padding-64 w3-section w3-text-white" id="rannamegen">
-        <h3 class="w3-center">RANDOM NAME GENERATOR</h3>
-        <div class="w3-padding w3-third">
-            <p>
-                Add names one at a time in the text box. When you hit random, it will be a "truly" random name. Click the button to make
-                it go through each name once, randomly, before resetting.
-            </p>
-            <button onclick="toggleType()" class="w3-button w3-padding-small w3-black w3-center">Switch Mode</button>
-            <p id="mode">
-                Truly Random
-            </p>
-        </div>
-        <div class="w3-padding w3-third">
-            <div class="w3-center w3-large w3-margin-bottom">
-                <input type="text" onkeydown="precheck(this)" placeholder="Enter Random Names" />
+    <div class="w3-content w3-container w3-padding-64 w3-section w3-text-white" style="background-color:rgba(158, 158, 158, .6)" id="rannamegen">
+        <div class="w3-opacity-off">
+            <div class="w3-padding w3-third">
+                <p>
+                    Add names one at a time in the text box. When you hit random, it will be a "truly" random name. Click the button to make
+                    it go through each name once, randomly, before resetting.
+                </p>
+                <button onclick="toggleType()" class="w3-button w3-padding-small w3-black w3-center">Switch Mode</button>
+                <p id="mode">
+                    Truly Random
+                </p>
             </div>
-            <div class="w3-center">
-                <button class="w3-button w3-padding-small w3-black w3-center" onclick="genRanName()">Random Name</button>
-                <button class="w3-button w3-padding-small w3-black w3-center" onclick="clearNames()">Clear Names</button>
-                <p class="w3-center w3-large w3" id="name"></p>
+            <div class="w3-padding w3-third">
+                <div class="w3-center w3-large w3-margin-bottom">
+                    <input type="text" onkeydown="precheck(this)" placeholder=" Enter Random Names" />
+                </div>
+                <div class="w3-center">
+                    <button class="w3-button w3-padding-small w3-black w3-center" onclick="genRanName()">Random Name</button>
+                    <button class="w3-button w3-padding-small w3-black w3-center" onclick="clearNames()">Clear Names</button>
+                    <p class="w3-center w3-large w3" id="name"></p>
+                </div>
             </div>
-        </div>
-        <div class="w3-third w3-padding">
-            <h4>
-                Upload from File:
-            </h4>
-            <input type="file" id="fileinput" accept=".txt" />
-            <p>
-                The file will be seperated by line. Each line will considered one name. Only input one file at a time.
-            </p>
+            <div class="w3-third w3-padding">
+                <h4>
+                    Upload from File:
+                </h4>
+                <input type="file" id="fileinput" accept=".txt" />
+                <p>
+                    The file will be seperated by line. Each line will considered one name. Only input one file at a time.
+                </p>
+            </div>
         </div>
     </div>
 </body>
