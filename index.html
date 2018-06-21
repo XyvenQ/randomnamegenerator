@@ -94,7 +94,7 @@
             if (/^\d+$/.test(cname)) {
                 if (possibleNames.indexOf(cname) == -1) {} else {
                     possibleNames.splice(possibleNames.indexOf(cname), 1);
-                    document.getElementByID("" + cname).remove();
+                    document.getElementById("" + cname).remove();
                 }
             }
         }
