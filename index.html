@@ -19,6 +19,7 @@
                 }
             }
         }
+
         function onloadFunction() {
             resetPossibleNames();
             document.getElementById("fileinput").addEventListener('change', readSingleFile, false);
@@ -35,11 +36,35 @@
         var possibleNames = [];
         var isListType = false;
 
+        function openName(element) {
+            var temp = document.getElementById("nameInput");
+            temp.setAttribute("onkeydown", "precheck2(this)");
+            temp.value = "" + getCookie("" + element.id);
+        }
+
+        function resetInput() {
+            document.getElementById("nameInput").setAttribute("onkeydown", "precheck(this)");
+        }
+
+        function displayName(cname) {
+            var temp = document.createElement("div");
+            temp.innerHTML = getCookie("" + cname);
+            temp.setAttribute("class", "w3-center w3-show-inline-block w3-padding-small");
+            temp.setAttribute("id", "" + cname);
+            temp.setAttribute("onclick", "openName(this)");
+            var tempI = document.createElement("i");
+            tempI.setAttribute("class", "fa fa-times w3-hover w3-hover-text-red");
+            tempI.setAttribute("onclick", "deleteCookie(parentElement)")
+            temp.appendChild(tempI);
+            document.getElementById("namesDisplay").appendChild(temp);
+        }
+
         function addCookie(cname, cvalue) {
             document.cookie = "" + cname + "=" + cvalue + ";";
             if (/^\d+$/.test("" + cname)) {
                 possibleNames.push("" + cname);
                 displayName("" + cname);
+                console.log("Created name: " + cname)
             }
         }
 
@@ -55,29 +80,6 @@
                     document.getElementByID("" + cname).remove();
                 }
             }
-        }
-
-        function openName(element) {
-            var temp = document.getElementById("nameInput");
-            temp.setAttribute("onkeydown", "precheck2(this)");
-            temp.value = "" + getCookie("" + element.id);
-        }
-
-        function resetInput() {
-            document.getElementById("nameInput").setAttribute("onkeydown", "precheck(this)");
-        }
-
-        function displayName(cname) {
-            var temp = document.createElement("div");
-            temp.innerHTML = getCookie("" + getCookie(cname));
-            temp.setAttribute("class", "w3-center w3-show-inline-block w3-padding-small");
-            temp.setAttribute("id", "" + cname);
-            temp.setAttribute("onclick", "openName(this)");
-            var tempI = document.createElement("i");
-            tempI.setAttribute("class", "fa fa-times w3-hover w3-hover-text-red");
-            tempI.setAttribute("onclick", "deleteCookie(parentElement)")
-            temp.appendChild(tempI);
-            document.getElementById("namesDisplay").appendChild(temp);
         }
 
         function clearCurrentCookies() {
