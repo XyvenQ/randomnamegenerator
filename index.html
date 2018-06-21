@@ -22,6 +22,7 @@
 
         function onloadFunction() {
             resetPossibleNames();
+            displayNames();
             document.getElementById("fileinput").addEventListener('change', readSingleFile, false);
         }
         //cookie handling
@@ -68,7 +69,9 @@
         }
         function displayNames(){
             for (let i = 0; i < numNames; i++) {
-                           
+                if (getCookie("" + i) != "") {
+                    displayName(""+i);
+                }
             }
         }
 
