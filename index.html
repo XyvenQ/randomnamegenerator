@@ -40,8 +40,9 @@
 
         function openName(element) {
             var temp = document.getElementById("nameInput");
-            currentName = element.id;
+            currentName = "" + element.id;
             temp.setAttribute("onkeydown", "precheck2(this)");
+            window.addEventListener("onkeydown", escape);
             temp.value = "" + getCookie("" + element.id);
         }
 
@@ -191,8 +192,7 @@
                 if (element.value != "") {
                     addCookie(numNames, element.value);
                     setCookie("numNames", numNames);
-                    element
-                        .value = "";
+                    element.value = "";
                 }
             }
         }
@@ -208,18 +208,14 @@
                 resetInput();
                 element.value = "";
                 currentName = "";
-            }
-            if (event.keyCode == 27) {
-                resetInput();
-                element.value = "";
-                currentName = "";
+                window.removeEventListener("onkeydown", escape);
             }
         }
 
         async function fileToCookies() {
             for (let i = 0; i < namesList.length; i++) {
-                if (""+namesList[i] != "")
-                    addCookie("" + numNames, "" + namesList[i])
+                if ("" + namesList[i].trim() != "")
+                    addCookie("" + numNames, "" + namesList[i].trim())
             }
             setCookie("numNames", numNames);
         }
@@ -239,6 +235,15 @@
                 }
             } else {
                 alert('The File APIs are not fully supported by your browser.');
+            }
+        }
+
+        function escape(e) {
+            if (e.keyCode == 27) {
+                resetInput();
+                element.value = "";
+                currentName = "";
+                window.removeEventListener("onkeydown", escape);
             }
         }
     </script>
@@ -306,7 +311,7 @@
             <h4>
                 Upload from File:
             </h4>
-            <input type="file" id="fileinput" accept=".txt" class="w3-input"/>
+            <input type="file" id="fileinput" accept=".txt" class="w3-input" />
             <p>
                 The file will be seperated by line. Each line will considered one name. Only input one file at a time.
             </p>
