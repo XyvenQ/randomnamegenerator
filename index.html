@@ -48,15 +48,15 @@
         function resetInput() {
             document.getElementById("nameInput").setAttribute("onkeydown", "precheck(this)");
         }
-        
+
         function displayName(cname) {
             var temp = document.createElement("div");
             temp.setAttribute("class", "w3-center w3-btn w3-show-inline-block w3-padding-small");
             temp.setAttribute("id", "" + cname);
             temp.setAttribute("onclick", "openName(this)");
             var tempSpan = document.createElement("span");
-            tempSpan.innerHTML=getCookie("" + cname)+ " ";
-            tempSpan.setAttribute("id", "span"+cname);
+            tempSpan.innerHTML = getCookie("" + cname) + " ";
+            tempSpan.setAttribute("id", "span" + cname);
             temp.appendChild(tempSpan);
             var tempI = document.createElement("i");
             tempI.setAttribute("class", "fa fa-times w3-hover w3-hover-text-red");
@@ -64,13 +64,15 @@
             temp.appendChild(tempI);
             document.getElementById("namesDisplay").appendChild(temp);
         }
-        function updateDisplayName(cname){
-            document.getElementById("span"+cname).innerHTML = getCookie(""+cname) + " ";
+
+        function updateDisplayName(cname) {
+            document.getElementById("span" + cname).innerHTML = getCookie("" + cname) + " ";
         }
-        function displayNames(){
+
+        function displayNames() {
             for (let i = 0; i < numNames; i++) {
                 if (getCookie("" + i) != "") {
-                    displayName(""+i);
+                    displayName("" + i);
                 }
             }
         }
@@ -90,8 +92,9 @@
 
         function deleteCookie(cname) {
             document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-            document.getElementById("" + cname).remove();
-            if (/^\d+$/.test(""+cname)) {
+            if (document.getElementById("" + cname) != null)
+                document.getElementById("" + cname).remove();
+            if (/^\d+$/.test("" + cname)) {
                 if (possibleNames.indexOf(cname) == -1) {} else {
                     possibleNames.splice(possibleNames.indexOf(cname), 1);
                 }
@@ -133,7 +136,7 @@
             possibleNames = [];
             for (var i = 0; i < numNames; i++) {
                 if (getCookie("" + i) != "") {
-                    possibleNames.push(""+i);
+                    possibleNames.push("" + i);
                 }
             }
         }
@@ -253,7 +256,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            background-color:black;
+            background-color: black;
             /* background-image: url("./resources/stars.jpg"); */
         }
     </style>
