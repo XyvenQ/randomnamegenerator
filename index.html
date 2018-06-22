@@ -249,7 +249,7 @@
         function escape(e) {
             if (e.keyCode == 27) {
                 resetInput();
-                e.value = "";
+                document.getElementById("nameInput").value = "";
                 currentName = "";
                 document.removeEventListener("keydown", escape);
             }
