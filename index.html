@@ -42,7 +42,7 @@
             var temp = document.getElementById("nameInput");
             currentName = "" + element.id;
             temp.setAttribute("onkeydown", "precheck2(this)");
-            window.addEventListener("onkeydown", escape);
+            document.addEventListener("keydown", escape);
             temp.value = "" + getCookie("" + element.id);
         }
 
@@ -61,7 +61,7 @@
             temp.appendChild(tempSpan);
             var tempI = document.createElement("i");
             tempI.setAttribute("class", "fa fa-times w3-hover w3-hover-text-red");
-            tempI.setAttribute("onclick", "deleteCookie(parentElement.id)")
+            tempI.setAttribute("onclick", "xButtonHit(parentElement.id)");
             temp.appendChild(tempI);
             document.getElementById("namesDisplay").appendChild(temp);
         }
@@ -90,7 +90,12 @@
         function setCookie(cname, cvalue) {
             document.cookie = "" + cname + "=" + cvalue + ";";
         }
-
+        function xButtonHit(cname){
+            if(!e) var e = window.event;
+            e.cancelBubble = true;
+            if(e.stopPropagation)e.stopPropagation();
+            deleteCookie(cname);
+        }
         function deleteCookie(cname) {
             document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             if (document.getElementById("" + cname) != null){
@@ -100,7 +105,6 @@
                 if (possibleNames.indexOf(cname) == -1) {} else {
                     possibleNames.splice(possibleNames.indexOf(cname), 1);
                 }
-                resetInput();
             }
         }
 
@@ -210,7 +214,7 @@
                 resetInput();
                 element.value = "";
                 currentName = "";
-                window.removeEventListener("onkeydown", escape);
+                document.removeEventListener("keydown", escape);
             }
         }
 
@@ -245,7 +249,7 @@
                 resetInput();
                 element.value = "";
                 currentName = "";
-                window.removeEventListener("onkeydown", escape);
+                document.removeEventListener("keydown", escape);
             }
         }
     </script>
