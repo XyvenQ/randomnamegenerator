@@ -217,11 +217,11 @@
         }
 
         async function fileToCookies() {
+            
             for (let i = 0; i < namesList.length; i++) {
                 if(namesList[i]!=null)
-                    addCookie("" + i+numNames, "" + namesList[i])
+                    addCookie("" + numNames, "" + namesList[i])
             }
-            numNames += namesList.length;
             setCookie("numNames", numNames);
         }
         async function readSingleFile(evt) {
