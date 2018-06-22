@@ -289,12 +289,15 @@
             Random Name Generator
         </h1>
     </div>
-    <div class="w3-content w3-container w3-padding-64 w3-section w3-text-white" style="background-color:rgba(158, 158, 158, .6)"
+    <div class="w3-content w3-container w3-padding-64 w3-section w3-text-white w3-justify" style="background-color:rgba(158, 158, 158, .6);"
         id="rannamegen">
         <div class="w3-padding w3-third">
             <p>
-                Add names one at a time in the text box. When you hit random, it will be a "truly" random name. Click the button to make
-                it go through each name once, randomly, before resetting.
+                &nbsp;&nbsp;&nbsp;&nbsp;Add names one at a time in the text box. Hit enter to confirm a name. The mode denoted below affects how the random name
+                is choosen.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;"Truly random" will select a random name from the list.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;"Random Order" will go though each name on the list once in a random order, then start over with a new random
+                order.
             </p>
             <button onclick="toggleType()" class="w3-button w3-padding-small w3-black w3-center">Switch Mode</button>
             <p>
@@ -303,7 +306,6 @@
                     Truly Random
                 </span>
             </p>
-
         </div>
         <div class="w3-padding w3-third">
             <div class="w3-center w3-large w3-margin-bottom">
@@ -312,8 +314,8 @@
             <div class="w3-center">
                 <button class="w3-button w3-padding-small w3-black w3-center" onclick="genRanName()">Random Name</button>
                 <button class="w3-button w3-padding-small w3-black w3-center" onclick="clearNames()">Clear Names</button>
-                <p class="w3-center w3-large w3" id="name"></p>
             </div>
+            <p class="w3-center w3-large w3" id="name"></p>
         </div>
         <div class="w3-third w3-padding">
             <h4>
@@ -321,7 +323,9 @@
             </h4>
             <input type="file" id="fileinput" accept=".txt" class="w3-input" />
             <p>
-                The file will be seperated by line. Each line will considered one name. Only input one file at a time.
+                &nbsp;&nbsp;&nbsp;&nbsp;The file will be seperated by line. Each line will considered one name. The names from the file will be added onto whatever
+                names there currently are. Blank lines will not be considered names, and space at the beginning and end of
+                each name will be stripped.
             </p>
         </div>
         <div id="namesDisplay" class="w3-show-inline-block ">
