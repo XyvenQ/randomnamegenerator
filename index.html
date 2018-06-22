@@ -192,7 +192,7 @@
                     addCookie(numNames, element.value);
                     setCookie("numNames", numNames);
                     element
-                    .value = "";
+                        .value = "";
                 }
             }
         }
@@ -217,9 +217,9 @@
         }
 
         async function fileToCookies() {
-            
+
             for (let i = 0; i < namesList.length; i++) {
-                if(namesList[i]!="")
+                if (namesList[i] != "")
                     addCookie("" + numNames, "" + namesList[i])
             }
             setCookie("numNames", numNames);
