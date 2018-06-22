@@ -188,7 +188,7 @@
 
         function precheck(element) {
             if (event.keyCode == 13) {
-                if (element.value != null) {
+                if (element.value != "") {
                     addCookie(numNames, element.value);
                     setCookie("numNames", numNames);
                     element
@@ -219,7 +219,7 @@
         async function fileToCookies() {
             
             for (let i = 0; i < namesList.length; i++) {
-                if(namesList[i]!=null)
+                if(namesList[i]!="")
                     addCookie("" + numNames, "" + namesList[i])
             }
             setCookie("numNames", numNames);
