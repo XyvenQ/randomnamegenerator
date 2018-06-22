@@ -90,15 +90,17 @@
         function setCookie(cname, cvalue) {
             document.cookie = "" + cname + "=" + cvalue + ";";
         }
-        function xButtonHit(cname){
-            if(!e) var e = window.event;
+
+        function xButtonHit(cname) {
+            if (!e) var e = window.event;
             e.cancelBubble = true;
-            if(e.stopPropagation)e.stopPropagation();
+            if (e.stopPropagation) e.stopPropagation();
             deleteCookie(cname);
         }
+
         function deleteCookie(cname) {
             document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-            if (document.getElementById("" + cname) != null){
+            if (document.getElementById("" + cname) != null) {
                 document.getElementById("" + cname).remove();
             }
             if (/^\d+$/.test("" + cname)) {
@@ -195,7 +197,7 @@
 
         function precheck(element) {
             if (event.keyCode == 13) {
-                if (""+element.value.trim() != "") {
+                if ("" + element.value.trim() != "") {
                     addCookie(numNames, element.value);
                     setCookie("numNames", numNames);
                     element.value = "";
@@ -205,7 +207,7 @@
 
         function precheck2(element) {
             if (event.keyCode == 13) {
-                if (""+element.value.trim() == "") {
+                if ("" + element.value.trim() == "") {
                     deleteCookie(currentName);
                 } else {
                     setCookie(currentName, element.value);
@@ -247,7 +249,7 @@
         function escape(e) {
             if (e.keyCode == 27) {
                 resetInput();
-                element.value = "";
+                e.value = "";
                 currentName = "";
                 document.removeEventListener("keydown", escape);
             }
