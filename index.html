@@ -188,16 +188,23 @@
 
         function precheck(element) {
             if (event.keyCode == 13) {
-                addCookie(numNames, element.value);
-                setCookie("numNames", numNames);
-                element.value = "";
+                if (element.value != null) {
+                    addCookie(numNames, element.value);
+                    setCookie("numNames", numNames);
+                    element
+                    .value = "";
+                }
             }
         }
 
         function precheck2(element) {
             if (event.keyCode == 13) {
-                setCookie(currentName, element.value);
-                updateDisplayName(currentName);
+                if (element.value == null) {
+                    deleteCookie(currentName);
+                } else {
+                    setCookie(currentName, element.value);
+                    updateDisplayName(currentName);
+                }
                 resetInput();
                 element.value = "";
                 currentName = "";
@@ -210,13 +217,12 @@
         }
 
         async function fileToCookies() {
-            clearNames();
             for (let i = 0; i < namesList.length; i++) {
-                addCookie("" + i, "" + namesList[i])
-                console.log("" + i, "" + namesList[i]);
+                if(namesList[i]!=null)
+                    addCookie("" + i+numNames, "" + namesList[i])
             }
-            numNames = namesList.length;
-            setCookie("numNames", namesList.length);
+            numNames += namesList.length;
+            setCookie("numNames", numNames);
         }
         async function readSingleFile(evt) {
             if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -256,7 +262,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-             background-image: url("./resources/stars.jpg"); 
+            background-image: url("./resources/stars.jpg");
         }
     </style>
 </head>
