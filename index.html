@@ -96,6 +96,12 @@
             e.cancelBubble = true;
             if (e.stopPropagation) e.stopPropagation();
             deleteCookie(cname);
+            if(""+currentName==""+cname){
+                resetInput();
+                docuement.getElementById("nameInpu").value = "";
+                currentName = "";
+                document.removeEventListener("keydown", escape);
+            }
         }
 
         function deleteCookie(cname) {
@@ -298,6 +304,7 @@
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;"Truly random" will select a random name from the list.
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;"Random Order" will go though each name on the list once in a random order, then start over with a new random
                 order.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;Clicking on a name will allow it to be edited, and clicking the <i class="fa fa-times w3-hover-text-red"></i> will remove the name. 
             </p>
             <button onclick="toggleType()" class="w3-button w3-padding-small w3-black w3-center">Switch Mode</button>
             <p>
