@@ -23,6 +23,7 @@
         function onloadFunction() {
             resetPossibleNames();
             displayNames();
+            clearHighlight();
             document.getElementById("fileinput").addEventListener('change', readSingleFile, false);
             document.getElementById("name").addEventListener('change', readSingleFile, false);
         }
@@ -155,7 +156,6 @@
                     possibleNames.push("" + i);
                 }
             }
-            clearHighlight();
         }
 
         function clearNames() {
