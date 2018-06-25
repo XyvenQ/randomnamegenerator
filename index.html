@@ -201,8 +201,8 @@
             var ranPos = Math.floor(Math.random() * possibleNames.length);
             document.getElementById("name").innerHTML = getCookie("" + possibleNames[ranPos]);
             if (isListType) {
-                possibleNames.splice(ranPos, 1);
                 highlight("" + possibleNames[ranPos]);
+                possibleNames.splice(ranPos, 1);
             }
         }
         function highlight(cname){
