@@ -155,6 +155,7 @@
                     possibleNames.push("" + i);
                 }
             }
+            clearHighlight();
         }
 
         function clearNames() {
@@ -175,6 +176,7 @@
             } else {
                 trueRandom();
             }
+            clearHighlight();
         }
 
         function trueRandom() {
@@ -200,6 +202,17 @@
             document.getElementById("name").innerHTML = getCookie("" + possibleNames[ranPos]);
             if (isListType) {
                 possibleNames.splice(ranPos, 1);
+                highlight("" + possibleNames[ranPos]);
+            }
+        }
+        function highlight(cname){
+            document.getElementById(""+cname).classList.add("w3-dark-grey"); 
+        }
+        function clearHighlight(){
+            for (var i = 0; i < numNames; i++) {
+                if (getCookie("" + i) != "") {
+                    document.getElementById(""+i).classList.remove("w3-dark-grey");
+                }
             }
         }
         function download(filename) {
