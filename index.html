@@ -98,7 +98,7 @@
             deleteCookie(cname);
             if(""+currentName==""+cname){
                 resetInput();
-                docuement.getElementById("nameInpu").value = "";
+                docuent.getElementById("nameInput").value = "";
                 currentName = "";
                 document.removeEventListener("keydown", escape);
             }
@@ -168,7 +168,7 @@
         }
 
         function toggleType() {
-            docuemnt.getElementById("name").innerHTML = "";
+            document.getElementById("name").innerHTML = "";
             if (!isListType) {
                 listRandom();
             } else {
