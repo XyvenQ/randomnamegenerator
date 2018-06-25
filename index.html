@@ -201,6 +201,21 @@
                 possibleNames.splice(ranPos, 1);
             }
         }
+        function download(filename) {
+            for (var i = 0; i < numNames; i++) {
+                var temp = getCookie("" + i);
+                if (temp != "") {
+                    names += "" + temp + "\n"
+                }
+            }
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(names));
+            element.setAttribute('download', filename);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
 
         function precheck(element) {
             if (event.keyCode == 13) {
@@ -335,6 +350,10 @@
                 names there currently are. Blank lines will not be considered names, and space at the beginning and end of
                 each name will be stripped.
             </p>
+            <form onsubmit="download(this['name'].value)">
+                <input type="text" name="name" value="">
+                <input type="submit" value="Download">
+            </form>
         </div>
         <div id="namesDisplay" class="w3-show-inline-block ">
 
