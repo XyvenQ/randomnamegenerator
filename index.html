@@ -259,9 +259,14 @@
         }
 
         async function fileToCookies() {
+            var temp = numNames;
             for (let i = 0; i < namesList.length; i++) {
                 if ("" + namesList[i].trim() != "")
                     addCookie("" + numNames, "" + namesList[i].trim())
+            }
+            if(""+getCookie(""+temp) == ""){
+                alert("Your browser doesn't allow you to store as many names as were in the file. The names will be cleared.");
+                clearNames();
             }
             setCookie("numNames", numNames);
         }
