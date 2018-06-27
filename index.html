@@ -19,7 +19,7 @@
                 }
             }
         }
-
+        var isListType;
         function onloadFunction() {
             resetPossibleNames();
             displayNames();
@@ -37,16 +37,16 @@
         }
         function handleModeDisplay(){
             if (getCookie("isListType") != "")
-                var isListType = getCookie("isListType");
+                isListType = getCookie("isListType");
             else {
-                var isListType = false;
+                isListType = false;
                 addCookie("isListType", isListType);
             }
-        }
-        if(isListType){
+            if(isListType){
             document.getElementById("mode").innerHTML = "Random Mode";
-        }else{
-            document.getElementById("mode").innerHTML = "Truly Random";
+            }else{
+                document.getElementById("mode").innerHTML = "Truly Random";
+            }
         }
         var namesList = [];
         var possibleNames = [];
