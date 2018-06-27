@@ -35,9 +35,18 @@
             var numNames = 0;
             addCookie("numNames", numNames);
         }
+        document.cookie = "";
+        if (getCookie("isListType") != "")
+            var numNames = getCookie("isListType");
+        else {
+            var isListType = false;
+            addCookie("isListType", isListType);
+        }
+        if(isListType){
+            document.getElementById("mode").innerHTML = "Random Mode";
+        }else{document.getElementById("mode").innerHTML = "Truly Random";}
         var namesList = [];
         var possibleNames = [];
-        var isListType = false;
         var currentName = "";
 
         function openName(element) {
@@ -182,12 +191,14 @@
         function trueRandom() {
             resetPossibleNames();
             isListType = false;
+            setCookie("isListType", false);
             document.getElementById("mode").innerHTML = "Truly Random";
         }
 
         function listRandom() {
             resetPossibleNames();
             isListType = true;
+            setCookie("isListType", true);
             document.getElementById("mode").innerHTML = "Random Order";
         }
 
