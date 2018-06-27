@@ -37,7 +37,7 @@
         }
         function handleModeDisplay(){
             if (getCookie("isListType") != "")
-                isListType = getCookie("isListType");
+                isListType = (getCookie("isListType")=="true");
             else {
                 isListType = false;
                 addCookie("isListType", isListType);
