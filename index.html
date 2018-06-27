@@ -24,23 +24,24 @@
             resetPossibleNames();
             displayNames();
             clearHighlight();
+            handleModeDisplay();
             document.getElementById("fileinput").addEventListener('change', readSingleFile, false);
             document.getElementById("name").addEventListener('change', readSingleFile, false);
         }
         //cookie handling
-        document.cookie = "";
         if (getCookie("numNames") != "")
             var numNames = getCookie("numNames");
         else {
             var numNames = 0;
             addCookie("numNames", numNames);
         }
-        document.cookie = "";
-        if (getCookie("isListType") != "")
-            var isListType = getCookie("isListType");
-        else {
-            var isListType = false;
-            addCookie("isListType", isListType);
+        function handleModeDisplay(){
+            if (getCookie("isListType") != "")
+                var isListType = getCookie("isListType");
+            else {
+                var isListType = false;
+                addCookie("isListType", isListType);
+            }
         }
         if(isListType){
             document.getElementById("mode").innerHTML = "Random Mode";
